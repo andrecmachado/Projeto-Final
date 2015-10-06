@@ -1,0 +1,5 @@
+if (projetoFinal == 10) {
+  System.out.println("Passemo!!");
+} else {
+  System.out.println("Fudeu, rodemo");
+}
