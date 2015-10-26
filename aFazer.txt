@@ -1,0 +1,16 @@
+A Fazer no Projeto:
+
+	Avaliar:
+		Fazer:
+			> Botão embaixo da tela "Procurar cervejas";
+			> Abre um JOptionPane com um combobox com as notas;
+			> Notas vão para a classe Acervo;
+
+	Salvar:
+		> OK! (Implementar);
+
+	Pesquisar:
+		Fazer:
+			> Layout novo;
+			> Procurar Cerveja;
+			> 
