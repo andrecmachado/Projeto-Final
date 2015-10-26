@@ -1,215 +1,226 @@
 package cadastro;
 
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JOptionPane;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+import java.awt.Component;
+import java.awt.Dimension;
 
+/**
+ *
+ * @author Lucas
+ */
 
-public class Cadastra extends javax.swing.JFrame {
+public class Cadastra extends JFrame {
 
     private int id = 0;
     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox nota;
-    private javax.swing.JTextArea txtc;
-    private javax.swing.JTextField txtna;
-    private javax.swing.JTextField txtne;
-    private javax.swing.JTextField txtnl;
+    private JButton btCadastrar;
+    private JButton btLimpar;
+    private JLabel lbNome;
+    private JLabel lbEmpresa;
+    private JLabel lbTipo;
+    private JLabel lbNota;
+    private JLabel lbComentario;
+    private JComboBox cbNota;
+    private JTextArea tfComentario;
+    private JTextField tfEmpresa;
+    private JTextField tfTipo;
+    private JTextField tfNome;
     
     public Cadastra() {
+    	setPreferredSize(new Dimension(360, 440));
+    	setSize(new Dimension(360, 440));
+    	getContentPane().setSize(new Dimension(400, 350));
+    	setResizable(true);
         initComponents();
     }
 
     private void initComponents() {
         
-        jLabel1 = new javax.swing.JLabel();
-        txtnl = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtna = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtne = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtc = new javax.swing.JTextArea();
-        nota = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        lbNome = new JLabel();
+        tfNome = new JTextField();
+        lbEmpresa = new JLabel();
+        tfEmpresa = new JTextField();
+        lbTipo = new JLabel();
+        tfTipo = new JTextField();
+        lbNota = new JLabel();
+        lbComentario = new JLabel();
+        cbNota = new JComboBox();
+        btCadastrar = new JButton();
+        btLimpar = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastrar");
+        setTitle("Cadastrar Breja");
         setBounds(new java.awt.Rectangle(300, 150, 0, 0));
-        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 windowClose(evt);
             }
         });
 
-        jLabel1.setText("Nome da Cerveja");
+        lbNome.setText("Nome da Cerveja");
+        lbEmpresa.setText("Empresa");
 
-        jLabel2.setText("Empresa");
-
-        txtna.addActionListener(new java.awt.event.ActionListener() {
+        tfEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnaActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Tipo");
+        lbTipo.setText("Tipo");
+        lbNota.setText("Nota");
+        lbComentario.setText("Comentário");
 
-        jLabel4.setText("Nota");
-
-        jLabel5.setText("Comentário");
-        
-
-        txtc.setColumns(20);
-        txtc.setRows(5);
-        jScrollPane1.setViewportView(txtc);
-
-        nota.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1", "2", "3", "4", "5"}));
-        nota.addActionListener(new java.awt.event.ActionListener() {
+        cbNota.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+        cbNota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 notaActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Limpar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btLimpar.setText("Limpar");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        tfComentario = new JTextArea();
+        
+                tfComentario.setColumns(20);
+                tfComentario.setRows(5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel1)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(txtnl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel3)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(txtne, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(79, 79, 79)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel4)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(nota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(173, 173, 173))
-                                                .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel2)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(txtna, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                                        .addContainerGap())))
-                                .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane1)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jButton2)
-                                                .addComponent(jButton1))
-                                        .addGap(82, 82, 82))))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(lbComentario)
+        					.addContainerGap(661, Short.MAX_VALUE))
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(tfComentario, GroupLayout.PREFERRED_SIZE, 321, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap())
+        				.addGroup(layout.createSequentialGroup()
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(lbNome)
+        						.addComponent(lbEmpresa)
+        						.addComponent(lbNota)
+        						.addComponent(lbTipo))
+        					.addGap(10)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(cbNota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        							.addContainerGap())
+        						.addGroup(layout.createSequentialGroup()
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+        								.addComponent(tfTipo, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+        								.addComponent(tfEmpresa)
+        								.addComponent(tfNome, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
+        							.addContainerGap(65, Short.MAX_VALUE))))))
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(47)
+        			.addComponent(btCadastrar)
+        			.addGap(64)
+        			.addComponent(btLimpar)
+        			.addContainerGap(71, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{jButton1, jButton2});
-
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1)
-                                .addComponent(txtnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2)
-                                .addComponent(txtna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
-                                .addComponent(txtne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4)
-                                .addComponent(nota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(jButton1)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jButton2))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(150, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lbNome)
+        				.addComponent(tfNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lbEmpresa)
+        				.addComponent(tfEmpresa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lbTipo)
+        				.addComponent(tfTipo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lbNota)
+        				.addComponent(cbNota, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(29)
+        			.addComponent(lbComentario)
+        			.addGap(13)
+        			.addComponent(tfComentario, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(btCadastrar)
+        				.addComponent(btLimpar))
+        			.addContainerGap(13, Short.MAX_VALUE))
         );
-
+        layout.linkSize(SwingConstants.HORIZONTAL, new Component[] {btCadastrar, btLimpar});
+        getContentPane().setLayout(layout);
         pack();
     }
 
     private void notaActionPerformed(java.awt.event.ActionEvent evt) {
-
+        //
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {    //apaga os caracteres escritos                                     
-        txtnl.setText("");
-        txtna.setText("");
-        txtne.setText("");
-        txtc.setText("");
-        nota.setSelectedIndex(0);
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { // Apaga os caracteres escritos                                     
+        tfNome.setText("");
+        tfEmpresa.setText("");
+        tfTipo.setText("");
+        tfComentario.setText("");
+        cbNota.setSelectedIndex(0);
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)  {      // gravar os dados cadastrados
-        
-        String nome = txtnl.getText();
-        String nomeEmpresa = txtna.getText();
-        String tipo = txtne.getText();
-        String comentario = txtc.getText();
-        int selecionado = nota.getSelectedIndex();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { // Gravar os dados cadastrados
+    	
+        String nome = tfNome.getText();
+        String nomeEmpresa = tfEmpresa.getText();
+        String tipo = tfTipo.getText();
+        String comentario = tfComentario.getText();
+        int selecionado = cbNota.getSelectedIndex();
         String Snota = Integer.toString(selecionado + 1);
         
-        if(nome == null || nome.trim().equals("")){// se o nome for null ou o nome, retirando os espaços em branco, for igual a ""
-        	JOptionPane.showMessageDialog(this, "Não foi possível adicionar. Forneça o nome da Cerveja!", "Erro", JOptionPane.ERROR_MESSAGE);
-        }else{
-        	boolean temCerveja = Acervo.getInstance().temCerveja(nome);
-        	if(temCerveja){
-        		JOptionPane.showMessageDialog(this, "Não foi possível adicionar. Cerveja com mesmo nome já cadastrado!", "Aviso", JOptionPane.WARNING_MESSAGE);
-        	}else{
-	        	CervejaAtual cerveja = new CervejaAtual(nome ,nomeEmpresa,tipo , comentario, Snota);
-	        	Acervo acervo = Acervo.getInstance();
-	        	acervo.addCerveja(cerveja);
+        if (nome == null || nome.trim().equals("")) { // Se o nome for null ou o nome, retirando os espaÃ§os em branco, for igual a ""
+            JOptionPane.showMessageDialog(this, "Não foi possível adicionar. Forneça o nome da Cerveja!", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            boolean temCerveja = Acervo.getInstance().temCerveja(nome);
+            if (temCerveja) {
+        	JOptionPane.showMessageDialog(this, "Não foi possível adicionar. Cerveja com mesmo nome já cadastrado!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else {
+	        CervejaAtual cerveja = new CervejaAtual(nome ,nomeEmpresa,tipo , comentario, Snota);
+	        Acervo acervo = Acervo.getInstance();
+	        acervo.addCerveja(cerveja);
 	        
-	        	JOptionPane.showMessageDialog(this, "Adicionado com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
-	        	this.dispose();
-        	}
-        }	
-    }
+	        JOptionPane.showMessageDialog(this, "Adicionado com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
+	        this.dispose();
+            }
+        }
+}
+    
 
     private void txtnaActionPerformed(java.awt.event.ActionEvent evt) {
-
+        
     }
 
     private void windowClose(java.awt.event.WindowEvent evt) {
         
-
     }
 
 }
