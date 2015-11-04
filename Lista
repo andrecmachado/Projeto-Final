@@ -10,17 +10,18 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
         
-/**
- *
- * @author Lucas
- */
 
 public class Lista extends JFrame {
     
     private JList<String> jListCervejas;
     private JButton detalhes;
     private JButton remover;
+    private JPanel panel;
+    private JTextField textField;
+    private JLabel lblPesquisarNaLista;
     
     public Lista() {
         initComponents();
@@ -69,6 +70,16 @@ public class Lista extends JFrame {
         pane.add(detalhes, BorderLayout.WEST);
         pane.add(remover, BorderLayout.EAST);
         getContentPane().add(pane, BorderLayout.SOUTH);
+        
+        panel = new JPanel();
+        getContentPane().add(panel, BorderLayout.NORTH);
+        
+        lblPesquisarNaLista = new JLabel("Pesquisar na lista:");
+        panel.add(lblPesquisarNaLista);
+        
+        textField = new JTextField();
+        panel.add(textField);
+        textField.setColumns(10);
         pack();
         
     }
