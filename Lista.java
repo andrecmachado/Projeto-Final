@@ -11,6 +11,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.event.*;
+import javax.swing.text.*;
 import javax.swing.JLabel;
         
 
@@ -78,11 +80,28 @@ public class Lista extends JFrame {
         panel.add(lblPesquisarNaLista);
         
         textField = new JTextField();
+        textField.getDocument().addDocumentListener(
+			new DocumentListener(){
+				public void insertUpdate(DocumentEvent e){
+		         pesquisarLista(textField.getText()); 
+		       }
+		       public void removeUpdate(DocumentEvent e){
+		         pesquisarLista(textField.getText());  
+		       }
+		       public void changedUpdate(DocumentEvent e){}
+			}
+			);
         panel.add(textField);
         textField.setColumns(10);
         pack();
         
     }
+    
+     public void pesquisarLista(String texto){
+	   int pos = jListCervejas.getNextMatch(texto, 0, Position.Bias.Forward);
+	   jListCervejas.setSelectedIndex(pos);
+	   jListCervejas.ensureIndexIsVisible(pos);
+ }
 
     protected void verDetalhes() {
         int selectedIndex = jListCervejas.getSelectedIndex();
