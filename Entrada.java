@@ -8,19 +8,24 @@ import java.io.File;
 import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
-/**
- *
- * @author Lucas
- */
 
 public class Entrada extends JFrame {
     
     private static final long serialVersionUID = 1L;
     private Container container;
     private JButton btCadastrar;
-    private JButton btSair;
+//    private JButton btSair;
     private JButton btPesquisar;
+    private JPanel panel;
+    private JMenuBar menuBar;
+    private JMenu mnOpcoes;
+    private JMenuItem mntmSalvar;
+    private JMenuItem mntmSair;
 
     public static void main(String args[]) {
 	java.awt.EventQueue.invokeLater(new Runnable() {
@@ -37,28 +42,28 @@ public class Entrada extends JFrame {
         container = getContentPane();
         container.setLayout(new GridLayout(0,1));
         GerenciadorBotoes btManager = new GerenciadorBotoes();
-    
-        btCadastrar = new JButton();  
-        btPesquisar = new JButton();
-        btSair = new JButton();
         
+        panel = new JPanel();
+        getContentPane().add(panel);
         
-        btCadastrar.setText("Cadastrar Cervejas");
-        btCadastrar.setActionCommand("1");
-        
-        btPesquisar.setText("Pesquisar");
-        btPesquisar.setActionCommand("2");
-        
-        btSair.setText("Sair");
-        btSair.setActionCommand("3");
-        
-        btCadastrar.addActionListener(btManager);
-        btPesquisar.addActionListener(btManager);
-        btSair.addActionListener(btManager);
-        
-        container.add(btCadastrar);
-        container.add(btPesquisar);
-        container.add(btSair);
+            btCadastrar = new JButton();  
+            panel.add(btCadastrar);
+            btCadastrar.setText("Cadastrar Cervejas");
+            btCadastrar.setActionCommand("1");
+            btCadastrar.addActionListener(btManager);
+            
+            btPesquisar = new JButton();
+            panel.add(btPesquisar);
+            btPesquisar.setText("Listar Cervejas");
+            btPesquisar.setActionCommand("2");
+            btPesquisar.addActionListener(btManager);
+            
+/*            btSair = new JButton();
+            panel.add(btSair);
+            btSair.setText("Sair");
+            btSair.setActionCommand("3");
+            btSair.addActionListener(btManager);
+ */           
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -66,6 +71,20 @@ public class Entrada extends JFrame {
         
         setSize(300, 200);
 	setResizable(false);
+	
+	menuBar = new JMenuBar();
+	setJMenuBar(menuBar);
+	
+	mnOpcoes = new JMenu("Opções");
+	menuBar.add(mnOpcoes);
+	
+	mntmSalvar = new JMenuItem("Salvar");
+	mnOpcoes.add(mntmSalvar);
+	
+	mntmSair = new JMenuItem("Sair");
+	mntmSair.setActionCommand("3");
+	mntmSair.addActionListener(btManager);
+	mnOpcoes.add(mntmSair);
         
     }
     
@@ -78,7 +97,7 @@ public class Entrada extends JFrame {
                 if ("1".equals(e.getActionCommand())) {
                     new Cadastra().setVisible(true);
                 } else if("2".equals(e.getActionCommand())){
-        			new Pesquisar().setVisible(true);
+        			new Lista().setVisible(true);
                 } else if("3".equals(e.getActionCommand())){
                 	System.exit(0);
             	}
