@@ -14,11 +14,11 @@ import javax.swing.JTextField;
 import javax.swing.event.*;
 import javax.swing.text.*;
 import javax.swing.JLabel;
-        
 
 public class Lista extends JFrame {
-    
-    private JList<String> jListCervejas;
+	
+	private static final long serialVersionUID = 1L;
+	private JList<String> jListCervejas;
     private JButton detalhes;
     private JButton remover;
     private JPanel panel;
@@ -52,7 +52,7 @@ public class Lista extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent arg0) {
-		verDetalhes();
+            	verDetalhes();
             }
             
         });
@@ -62,7 +62,7 @@ public class Lista extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent arg0) {
-		remover();			
+            	remover();			
             }
         	
         });
@@ -81,44 +81,44 @@ public class Lista extends JFrame {
         
         textField = new JTextField();
         textField.getDocument().addDocumentListener(
-			new DocumentListener(){
-				public void insertUpdate(DocumentEvent e){
-		         pesquisarLista(textField.getText()); 
-		       }
-		       public void removeUpdate(DocumentEvent e){
-		         pesquisarLista(textField.getText());  
-		       }
-		       public void changedUpdate(DocumentEvent e){}
-			}
-			);
-        panel.add(textField);
-        textField.setColumns(10);
-        pack();
+			new DocumentListener() {
+				public void insertUpdate(DocumentEvent e) {
+					pesquisarLista(textField.getText()); 
+		        }
+				public void removeUpdate(DocumentEvent e) {
+					pesquisarLista(textField.getText());  
+		        }
+		        public void changedUpdate(DocumentEvent e) { }
+			});
         
-    }
+        	panel.add(textField);
+        	textField.setColumns(10);
+        	pack();
+        
+    		}
     
-     public void pesquisarLista(String texto){
-	   int pos = jListCervejas.getNextMatch(texto, 0, Position.Bias.Forward);
-	   jListCervejas.setSelectedIndex(pos);
-	   jListCervejas.ensureIndexIsVisible(pos);
- }
+    	public void pesquisarLista(String texto) {
+    		int pos = jListCervejas.getNextMatch(texto, 0, Position.Bias.Forward);
+    		jListCervejas.setSelectedIndex(pos);
+    		jListCervejas.ensureIndexIsVisible(pos);
+    	}
 
     protected void verDetalhes() {
         int selectedIndex = jListCervejas.getSelectedIndex();
-	if (selectedIndex >= 0) {
+        if (selectedIndex >= 0) {
             List<CervejaAtual> cervejas = Acervo.getInstance().getAcervo();
             CervejaAtual cerveja = cervejas.get(selectedIndex);
             
-            String message = "Nome: " + cerveja.getNome() + "\nNome Empresa: " + cerveja.getEmpresa() + "\nTipo: " + cerveja.getTipo() + "\nNota: "+cerveja.getSnota() + "\nComentario: " + cerveja.getComentario();
+            String message = "Nome: " + cerveja.getNome() + "\nNome Empresa: " + cerveja.getnomeEmpresa() + "\nTipo: " + cerveja.gettipo() + "\nNota: "+cerveja.getSnota() + "\nComentario: " + cerveja.getComentario();
             JOptionPane.showMessageDialog(this, message, "Detalhes da Cerveja", JOptionPane.INFORMATION_MESSAGE);
-	} else {
-            JOptionPane.showMessageDialog(this, "Não foi possível realizar a operação. Selecione uma cerveja para proceder!", "Aviso", JOptionPane.WARNING_MESSAGE);
-	}
+        } else {
+        	JOptionPane.showMessageDialog(this, "NÃ£o foi possÃ­vel realizar a operaÃ§Ã£o. Selecione uma cerveja para proceder!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }
 	
     protected void remover() {
         int selectedIndex = jListCervejas.getSelectedIndex();
-	if(selectedIndex >= 0) {
+        if(selectedIndex >= 0) {
             String nome = jListCervejas.getSelectedValue();
             Acervo.getInstance().removeCerveja(nome);
 			
@@ -126,9 +126,9 @@ public class Lista extends JFrame {
             model.remove(selectedIndex);
 						
             JOptionPane.showMessageDialog(this, "Cerveja removida com sucesso", "Detalhes da Cerveja", JOptionPane.INFORMATION_MESSAGE);
-	} else {
-            JOptionPane.showMessageDialog(this, "Não foi possível realizar a operação. Selecione uma cerveja para proceder!", "Aviso", JOptionPane.WARNING_MESSAGE);
-	}
+        } else {
+            JOptionPane.showMessageDialog(this, "NÃ£o foi possÃ­vel realizar a operaÃ§Ã£o. Selecione uma cerveja para proceder!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }
     
 }
