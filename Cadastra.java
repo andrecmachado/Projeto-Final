@@ -3,28 +3,21 @@ package cadastro;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import java.awt.Component;
 import java.awt.Dimension;
 
-/**
- *
- * @author Lucas
- */
-
 public class Cadastra extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
-    private int id = 0;
-    
-    private JButton btCadastrar;
+	private JButton btCadastrar;
     private JButton btLimpar;
     private JLabel lbNome;
     private JLabel lbEmpresa;
@@ -79,7 +72,7 @@ public class Cadastra extends JFrame {
 
         lbTipo.setText("Tipo");
         lbNota.setText("Nota");
-        lbComentario.setText("Comentário");
+        lbComentario.setText("ComentÃ¡rio");
 
         cbNota.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
         cbNota.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +94,7 @@ public class Cadastra extends JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        
         tfComentario = new JTextArea();
         
                 tfComentario.setColumns(20);
@@ -197,22 +191,22 @@ public class Cadastra extends JFrame {
         int selecionado = cbNota.getSelectedIndex();
         String Snota = Integer.toString(selecionado + 1);
         
-        if (nome == null || nome.trim().equals("")) { // Se o nome for null ou o nome, retirando os espaÃ§os em branco, for igual a ""
-            JOptionPane.showMessageDialog(this, "Não foi possível adicionar. Forneça o nome da Cerveja!", "Erro", JOptionPane.ERROR_MESSAGE);
+        if (nome == null || nome.trim().equals("")) { // Se o nome for null ou o nome, retirando os espaÃƒÂ§os em branco, for igual a ""
+            JOptionPane.showMessageDialog(this, "NÃ£o foi possÃ­vel adicionar. ForneÃ§a o nome da Cerveja!", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
             boolean temCerveja = Acervo.getInstance().temCerveja(nome);
             if (temCerveja) {
-        	JOptionPane.showMessageDialog(this, "Não foi possível adicionar. Cerveja com mesmo nome já cadastrado!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(this, "NÃ£o foi possÃ­vel adicionar. Cerveja com mesmo nome jÃ¡ cadastrado!", "Aviso", JOptionPane.WARNING_MESSAGE);
             } else {
 	        CervejaAtual cerveja = new CervejaAtual(nome ,nomeEmpresa,tipo , comentario, Snota);
 	        Acervo acervo = Acervo.getInstance();
 	        acervo.addCerveja(cerveja);
 	        
-	        JOptionPane.showMessageDialog(this, "Adicionado com sucesso!", "Informação", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(this, "Adicionado com sucesso!", "InformaÃ§Ã£o", JOptionPane.INFORMATION_MESSAGE);
 	        this.dispose();
             }
         }
-}
+    }
     
 
     private void txtnaActionPerformed(java.awt.event.ActionEvent evt) {
