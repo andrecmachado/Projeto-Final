@@ -5,8 +5,8 @@ A Fazer no Projeto:
 			> Abre um JOptionPane com um combobox com as notas;
 			> Notas vão para a classe Acervo;
 
-	Salvar:
-		> OK! (Implementar);
+	Salvar:; (OK)
+		> OK!
 
 	Pesquisar:; (OK)
 		Fazer: ; (OK)
